@@ -1,6 +1,8 @@
 package dao;
 import db.DatabaseConnection;
 import model.Reservation;
+import model.Trajet;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +68,25 @@ public class ReservationDAO {
 
         return reservation;
     }
+    public List<Reservation> listerTous() {
+        List<Reservation> reservations = new ArrayList<>();
+        String sql = "SELECT * FROM Reservation";
 
+        try (Connection conn = DatabaseConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Reservation reservation = extraireReservationDuResultSet(rs);
+                reservations.add(reservation);
+            }
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la récupération de tous les Conducteurs");
+            e.printStackTrace();
+        }
+
+        return reservations;
+    }
     /**
      * Liste toutes les réservations d'un passager
      * @param passagerId l'ID du passager
@@ -178,6 +198,35 @@ public class ReservationDAO {
         } catch (Exception e) {
             System.err.println("Erreur lors de la remise en disponibilité des places");
             e.printStackTrace();
+        }
+    }
+    /**
+     * Met à jour les informations d'une réservation existante
+     * @param reservation l'objet Reservation avec les nouvelles valeurs
+     * @return true si la mise à jour a réussi, false sinon
+     */
+    public boolean mettreAJourReservation(Reservation reservation) {
+        String sql = "UPDATE Reservation SET dateReservation = ?, statut = ?, nombrePlaces = ?, " +
+                "prixTotal = ?, passagerId = ?, trajetId = ? WHERE id = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setTimestamp(1, (Timestamp) reservation.getDateReservation());
+            stmt.setString(2, reservation.getStatut());
+            stmt.setInt(3, reservation.getNombrePlaces());
+            stmt.setDouble(4, reservation.getPrixTotal());
+            stmt.setInt(5, reservation.getPassagerId());
+            stmt.setInt(6, reservation.getTrajetId());
+            stmt.setInt(7, reservation.getId());
+
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la mise à jour de la réservation");
+            e.printStackTrace();
+            return false;
         }
     }
 

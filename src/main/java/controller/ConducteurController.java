@@ -1,7 +1,6 @@
 package controller;
 import dao.ConducteurDAO;
 import model.Conducteur;
-
 import java.util.List;
 
 public class ConducteurController {
