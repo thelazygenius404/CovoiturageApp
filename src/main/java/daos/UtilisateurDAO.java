@@ -1,6 +1,6 @@
-package dao;
+package daos;
 import db.DatabaseConnection;
-import model.UtilisateurInscrit;
+import models.UtilisateurInscrit;
 
 import java.sql.*;
 import java.util.ArrayList;

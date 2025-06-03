@@ -1,6 +1,6 @@
-package controller;
-import dao.ReservationDAO;
-import model.Reservation;
+package controllers;
+import daos.ReservationDAO;
+import models.Reservation;
 import java.util.List;
 import java.util.Optional;
 

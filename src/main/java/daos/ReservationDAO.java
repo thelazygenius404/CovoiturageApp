@@ -1,7 +1,6 @@
-package dao;
+package daos;
 import db.DatabaseConnection;
-import model.Reservation;
-import model.Trajet;
+import models.Reservation;
 
 import java.sql.*;
 import java.util.ArrayList;

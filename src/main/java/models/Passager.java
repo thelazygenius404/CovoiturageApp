@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class Passager extends UtilisateurInscrit{
     private String methodePaiement;

@@ -1,4 +1,4 @@
-package view;
+package views;
 
 import javax.swing.*;
 import java.awt.*;
@@ -92,5 +92,25 @@ public class DashboardView extends JFrame {
                 btn.setBackground(ColorConstants.PRIMARY_COLOR);
             }
         });
+    }
+
+    public JButton getCreateRideButton() {
+        return createRideButton;
+    }
+
+    public JButton getViewBookingsButton() {
+        return viewBookingsButton;
+    }
+
+    public JButton getLogoutButton() {
+        return logoutButton;
+    }
+
+    public JButton getSearchButton() {
+        return searchButton;
+    }
+
+    public JButton getProfileButton() {
+        return profileButton;
     }
 }

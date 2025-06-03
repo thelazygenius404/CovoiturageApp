@@ -1,4 +1,4 @@
-package model;
+package models;
 import java.util.Date;
 public class Trajet {
     private int id;

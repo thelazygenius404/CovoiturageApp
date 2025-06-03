@@ -1,7 +1,6 @@
-package dao;
+package daos;
 import db.DatabaseConnection;
-import model.Conducteur;
-import model.Trajet;
+import models.Trajet;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class Conducteur extends UtilisateurInscrit{
     private String permisConduire;

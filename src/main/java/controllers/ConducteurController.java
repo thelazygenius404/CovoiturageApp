@@ -1,6 +1,6 @@
-package controller;
-import dao.ConducteurDAO;
-import model.Conducteur;
+package controllers;
+import daos.ConducteurDAO;
+import models.Conducteur;
 import java.util.List;
 
 public class ConducteurController {

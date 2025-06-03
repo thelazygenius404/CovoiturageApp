@@ -1,7 +1,7 @@
-package controller;
+package controllers;
 
-import dao.UtilisateurDAO;
-import model.UtilisateurInscrit;
+import daos.UtilisateurDAO;
+import models.UtilisateurInscrit;
 
 import java.util.List;
 

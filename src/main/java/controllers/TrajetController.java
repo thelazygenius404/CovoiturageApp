@@ -1,6 +1,6 @@
-package controller;
-import dao.TrajetDAO;
-import model.Trajet;
+package controllers;
+import daos.TrajetDAO;
+import models.Trajet;
 import java.util.List;
 import java.util.Date;
 import java.util.Optional;

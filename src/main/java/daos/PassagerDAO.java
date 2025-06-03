@@ -1,6 +1,6 @@
-package dao;
+package daos;
 import db.DatabaseConnection;
-import model.Passager;
+import models.Passager;
 import java.sql.*;
 public class PassagerDAO {
     /**
